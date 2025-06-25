@@ -1,25 +1,25 @@
 # 🧠 AI Resume Builder
 
-An intelligent, developer-friendly resume builder powered by **Google Gemini API** and built using **Next.js**, **TypeScript**, and **Genkit**. It allows users to create, analyze, and optimize resumes with real-time AI feedback and beautifully designed exportable templates.
+An intelligent resume builder powered by **Gemini AI** and **Genkit**, built using **Next.js**, **TypeScript**, and **LaTeX** for professional PDF output. This platform helps users generate polished resumes with real-time AI suggestions and high-quality LaTeX-based formatting.
 
 ---
 
 ## 🚀 Features
 
-- 🤖 **Gemini AI Integration** — Generate resume content, improve bullet points, and receive suggestions using Google's Gemini API.
-- 🧪 **Resume Analysis** — Get intelligent feedback and optimization tips for better professional impact.
-- 📤 **PDF Export** — Convert resume into a clean and printable PDF format.
-- ✨ **Live Editing & Preview** — Real-time updates with a modern, responsive UI.
-- 🎨 **Multiple Templates** — Switch between elegant resume styles.
-- 🛠️ **Built with Genkit** — Seamless AI workflows and modular LLM orchestration.
+- 🤖 **AI-Powered Resume Content** — Uses Gemini API to generate and enhance content like experience, summary, and job descriptions.
+- 📄 **LaTeX Resume Templates** — Professional formatting powered by LaTeX ensures top-quality PDF resumes.
+- 📥 **PDF Export** — Automatically compiles LaTeX to generate downloadable PDF files.
+- 🔁 **Live Editing** — Instantly view AI-enhanced content before final generation.
+- 🛠️ **Genkit Integration** — Orchestrates LLM workflows, prompting, and data handling with ease.
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Frontend**: [Next.js](https://nextjs.org/), [TypeScript](https://www.typescriptlang.org/), [Tailwind CSS](https://tailwindcss.com/)
-- **AI Engine**: [Gemini API](https://ai.google.dev/gemini-api), [Genkit](https://github.com/google/genkit)
-- **PDF Export**: `react-pdf` or `html2pdf.js`
+- **Frontend**: Next.js, TypeScript, Tailwind CSS
+- **AI Integration**: Google Gemini API + Genkit
+- **Resume Generation**: LaTeX templates + PDF compilation (e.g., `pdflatex`, `tectonic`, or API)
+- **PDF Handling**: File system or Cloud Storage (optional)
 - **State Management**: React Context / Zustand
 
 ---

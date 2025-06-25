@@ -1,0 +1,404 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'PT Sans', sans-serif; /* Default body font */
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 94.1%; /* Light Gray #F0F0F0 */
+    --foreground: 0 0% 3.9%; /* Darker text for readability */
+
+    --card: 0 0% 100%; /* White cards */
+    --card-foreground: 0 0% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+
+    --primary: 271 100% 25.5%; /* Deep Indigo #4B0082 */
+    --primary-foreground: 0 0% 98%; /* White text on primary */
+
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+
+    --accent: 180 100% 25.1%; /* Teal #008080 */
+    --accent-foreground: 0 0% 98%; /* White text on accent */
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 271 100% 25.5%; /* Ring color to match primary */
+
+    --radius: 0.5rem;
+
+    /* Chart colors (can be adjusted if charts are used) */
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+
+    /* Sidebar specific colors (might not be heavily used if no persistent sidebar) */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Define dark theme based on the light theme's structure if needed, or adjust as per dark mode design */
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 271 100% 65.5%; /* Lighter Deep Indigo for dark mode */
+    --primary-foreground: 0 0% 9%;
+
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+
+    --accent: 180 100% 45.1%; /* Lighter Teal for dark mode */
+    --accent-foreground: 0 0% 9%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 271 100% 65.5%;
+
+    /* Chart colors for dark mode */
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+
+    /* Sidebar colors for dark mode */
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-headline; /* Default headline font */
+  }
+}
+
+@media print {
+  body, html {
+    background-color: white !important;
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
+    height: auto !important;
+    overflow: visible !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .print-hidden, .print\:hidden {
+    display: none !important;
+  }
+
+  body * {
+    visibility: hidden !important;
+  }
+
+  .printable-area, .printable-area * {
+    visibility: visible !important;
+  }
+
+  .printable-area {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: white !important;
+  }
+  
+  .printable-resume {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0.5in !important; /* Standard print margin */
+    border: none !important;
+    box-shadow: none !important;
+    page-break-before: auto;
+    page-break-after: auto;
+    page-break-inside: avoid;
+    font-size: 10pt !important; 
+    color: black !important; 
+    background: white !important; 
+  }
+
+  /* Default/Classic Template Print Styles */
+  .printable-resume.template-classic, .printable-resume { /* .printable-resume serves as fallback */
+    font-family: 'PT Sans', sans-serif !important;
+  }
+  .printable-resume.template-classic header, .printable-resume header {
+    text-align: center !important;
+    margin-bottom: 0.25in !important;
+  }
+  .printable-resume.template-classic h1, .printable-resume h1 { /* Name */
+    font-family: 'Playfair Display', serif !important;
+    font-size: 20pt !important;
+    font-weight: bold !important;
+    color: black !important;
+    margin-bottom: 0.05in !important;
+  }
+  .printable-resume.template-classic header > div, .printable-resume header > div { /* Contact info div */
+    font-family: 'PT Sans', sans-serif !important;
+    font-size: 9pt !important;
+    color: black !important;
+    line-height: 1.4 !important;
+  }
+   .printable-resume.template-classic header > div p, .printable-resume header > div p {
+     margin-bottom: 2px !important;
+  }
+  .printable-resume.template-classic section, .printable-resume section {
+    margin-bottom: 0.2in !important;
+    page-break-inside: avoid !important;
+  }
+  .printable-resume.template-classic section > h2, .printable-resume section > h2 { /* Section Titles */
+    font-family: 'Playfair Display', serif !important;
+    font-size: 14pt !important;
+    font-weight: bold !important;
+    color: black !important;
+    border-bottom: 1px solid #333 !important;
+    padding-bottom: 0.1in !important;
+    margin-bottom: 0.15in !important;
+    text-transform: uppercase !important;
+    page-break-after: avoid !important;
+  }
+  
+  /* Modern Template Print Styles - overrides */
+  .printable-resume.template-modern {
+    font-family: 'PT Sans', sans-serif !important;
+  }
+  .printable-resume.template-modern h1 { /* Name */
+    font-family: 'PT Sans', sans-serif !important;
+    font-size: 22pt !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    color: black !important;
+  }
+   .printable-resume.template-modern header > div { /* Contact info div */
+    font-family: 'PT Sans', sans-serif !important;
+    font-size: 9pt !important;
+    color: black !important;
+  }
+  .printable-resume.template-modern section > h2 { /* Section Titles */
+    font-family: 'PT Sans', sans-serif !important;
+    font-size: 13pt !important;
+    font-weight: 700 !important;
+    color: #222 !important; /* Slightly softer black */
+    border-bottom: 2px solid hsl(var(--accent)) !important; /* Teal border */
+    padding-bottom: 0.08in !important;
+    margin-bottom: 0.15in !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+  }
+
+  /* Elegant Template Print Styles - overrides */
+  .printable-resume.template-elegant {
+    font-family: 'PT Sans', sans-serif !important;
+  }
+  .printable-resume.template-elegant h1 { /* Name */
+    font-family: 'Playfair Display', serif !important;
+    font-size: 21pt !important;
+    font-weight: 400 !important; /* Normal weight */
+    letter-spacing: 0.03em !important;
+    color: black !important;
+  }
+  .printable-resume.template-elegant header > div { /* Contact info div */
+    font-family: 'PT Sans', sans-serif !important;
+    font-size: 8pt !important;
+    font-style: italic !important;
+    color: #333 !important;
+  }
+  .printable-resume.template-elegant section > h2 { /* Section Titles */
+    font-family: 'Playfair Display', serif !important;
+    font-size: 14pt !important;
+    font-weight: 600 !important; /* Semibold */
+    font-style: italic !important;
+    color: hsl(var(--primary)) !important; /* Deep Indigo */
+    border-bottom: 1px dotted #999 !important;
+    padding-bottom: 0.1in !important;
+    margin-bottom: 0.15in !important;
+    text-transform: none !important; /* Capitalize if AI does it, else normal */
+  }
+
+  /* Creative Template Print Styles - overrides */
+  .printable-resume.template-creative {
+    font-family: 'PT Sans', sans-serif !important;
+  }
+  .printable-resume.template-creative h1 { /* Name */
+    font-family: 'PT Sans', sans-serif !important;
+    font-size: 22pt !important;
+    font-weight: 800 !important; /* Extra bold */
+    color: hsl(var(--accent)) !important; /* Teal */
+  }
+  .printable-resume.template-creative header > div { /* Contact info div */
+    font-family: 'PT Sans', sans-serif !important;
+    font-size: 9pt !important;
+    color: black !important;
+  }
+  .printable-resume.template-creative section > h2 { /* Section Titles */
+    font-family: 'PT Sans', sans-serif !important;
+    font-size: 13pt !important;
+    font-weight: 700 !important;
+    color: black !important;
+    border-left: 4px solid hsl(var(--accent)) !important; /* Teal left border */
+    padding-left: 0.15in !important;
+    margin-bottom: 0.15in !important;
+    text-transform: none !important; /* Normal case */
+  }
+
+  /* Common Prose styles for all templates in print */
+  .printable-resume .prose {
+    font-size: 10pt !important;
+    line-height: 1.5 !important; 
+    color: black !important;
+    max-width: none !important;
+  }
+
+  .printable-resume.template-classic .prose p,
+  .printable-resume.template-classic .prose ul,
+  .printable-resume.template-classic .prose li,
+  .printable-resume.template-modern .prose p,
+  .printable-resume.template-modern .prose ul,
+  .printable-resume.template-modern .prose li,
+  .printable-resume.template-elegant .prose p,
+  .printable-resume.template-elegant .prose ul,
+  .printable-resume.template-elegant .prose li,
+  .printable-resume.template-creative .prose p,
+  .printable-resume.template-creative .prose ul,
+  .printable-resume.template-creative .prose li {
+    font-family: 'PT Sans', sans-serif !important; /* Ensure body font is consistent */
+  }
+
+  .printable-resume .prose p,
+  .printable-resume .prose ul,
+  .printable-resume .prose li {
+    color: black !important;
+    font-size: 10pt !important;
+    margin-bottom: 0.1in !important; 
+    page-break-inside: avoid !important;
+  }
+  .printable-resume .prose div.flex { /* For bullet points */
+    margin-bottom: 0.05in !important;
+  }
+  .printable-resume .prose div.flex p {
+    margin-bottom: 0 !important; /* Remove margin from p inside bullet flex */
+  }
+
+  .printable-resume .prose ul {
+    list-style-type: disc !important; /* Not really used due to custom bullet rendering */
+    padding-left: 0px !important; /* Handled by flex layout */
+  }
+  .printable-resume .prose li {
+    margin-bottom: 0.05in !important;
+  }
+
+  .printable-resume .prose a {
+    color: hsl(var(--primary)) !important; /* Link color matching primary */
+    text-decoration: underline !important;
+  }
+   .printable-resume.template-creative .prose a {
+    color: hsl(var(--accent)) !important; /* Link color matching creative accent */
+  }
+  .printable-resume .prose strong {
+    font-weight: bold !important;
+    color: black !important;
+  }
+  
+  /* Ensure these specific utility classes don't interfere */
+  .card-header-print-hidden,
+  .scroll-area-print-expanded .border, /* Remove border from scroll area in print */
+  .print\:border-none {
+    border: none !important;
+  }
+  .scroll-area-print-expanded {
+    height: auto !important;
+    overflow: visible !important;
+    background: transparent !important;
+  }
+}
+
+/* Screen-only template styles (can be more elaborate) */
+/* Classic Template Screen Styles */
+.template-classic h1.font-headline { @apply font-['Playfair_Display',_serif] text-3xl md:text-4xl text-gray-800; }
+.template-classic { @apply font-['PT_Sans',_sans-serif]; }
+.template-classic header > div { @apply text-xs text-gray-600; }
+.template-classic section > h2 { @apply font-['Playfair_Display',_serif] text-xl md:text-2xl font-bold text-gray-700 border-b-2 border-primary/30 pb-1 mb-3 uppercase; }
+
+/* Modern Template Screen Styles */
+.template-modern h1.font-headline { @apply font-['PT_Sans',_sans-serif] text-3xl md:text-4xl font-extrabold uppercase text-gray-900; }
+.template-modern { @apply font-['PT_Sans',_sans-serif]; }
+.template-modern header > div { @apply text-sm text-gray-700; }
+.template-modern section > h2 { @apply font-['PT_Sans',_sans-serif] text-xl md:text-2xl font-semibold uppercase tracking-wide text-gray-800 border-b-2 border-accent pb-1 mb-3; }
+
+/* Elegant Template Screen Styles */
+.template-elegant h1.font-headline { @apply font-['Playfair_Display',_serif] text-3xl md:text-4xl font-medium tracking-wider text-gray-800; }
+.template-elegant { @apply font-['PT_Sans',_sans-serif]; }
+.template-elegant header > div { @apply text-xs italic text-gray-600; }
+.template-elegant section > h2 { @apply font-['Playfair_Display',_serif] text-xl md:text-2xl font-semibold italic text-primary border-b border-primary/20 pb-1 mb-3; }
+
+/* Creative Template Screen Styles */
+.template-creative h1.font-headline { @apply font-['PT_Sans',_sans-serif] text-3xl md:text-4xl font-extrabold text-accent; }
+.template-creative { @apply font-['PT_Sans',_sans-serif]; }
+.template-creative header > div { @apply text-sm text-gray-700; }
+.template-creative section > h2 { @apply font-['PT_Sans',_sans-serif] text-xl md:text-2xl font-bold text-gray-800 border-l-4 border-accent pl-3 mb-3; }
+
+
+@layer components {
+  .prose {
+    @apply text-foreground;
+  }
+  .prose-sm {
+    font-size: theme('fontSize.sm');
+    line-height: theme('lineHeight.relaxed');
+  }
+   .prose-xs {
+    font-size: theme('fontSize.xs');
+    line-height: theme('lineHeight.normal');
+  }
+}

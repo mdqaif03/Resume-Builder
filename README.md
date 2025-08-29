@@ -20,7 +20,7 @@ An intelligent resume builder powered by **Gemini AI** and **Genkit**, built usi
 - **AI Integration**: Google Gemini API + Genkit
 - **Resume Generation**: LaTeX templates + PDF compilation (e.g., `pdflatex`, `tectonic`, or API)
 - **PDF Handling**: File system or Cloud Storage (optional)
-- **State Management**: React Context / Zustand
+- **State Management**: React Context 
 
 ---
 
